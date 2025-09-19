@@ -1,14 +1,24 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface MovieCardProps {
+  id: string;
   title: string;
   poster: string;
   year: string;
 }
 
-export default function MovieCard({ title, poster, year }: MovieCardProps) {
+export default function MovieCard({ title, poster, year, id }: MovieCardProps) {
+  const router = useRouter();
+
+  function goToDetail() {
+    router.push(`/movies/${id}`);
+  }
   return (
-    <div className="bg-gray-800 w-[16rem] m-auto text-white rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300">
+    <div
+      onClick={goToDetail}
+      className="bg-gray-800 w-[16rem] m-auto text-white rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300"
+    >
       <div className="relative w-full aspect-[3/3]">
         <Image
           src={poster}

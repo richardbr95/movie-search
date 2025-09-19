@@ -16,8 +16,12 @@ export default function Header() {
         </Link>
 
         <div className="flex space-x-4 relative right-8">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+          <Link href="/" className="text-2xl font-bold">
+            Home
+          </Link>
+          <Link href="/about" className="text-2xl font-bold">
+            About
+          </Link>
         </div>
       </nav>
     </header>
