@@ -24,7 +24,8 @@ export default async function MovieDetailPage({
 }: {
   params: { id: string };
 }) {
-  const movie = await getMovie(params.id);
+  const { id } = params;
+  const movie = await getMovie(id);
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
   return (
