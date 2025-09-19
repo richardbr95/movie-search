@@ -8,6 +8,10 @@ interface Movie {
   release_date: string;
 }
 
+interface MovieDetailPageProps {
+  params: { id: string };
+}
+
 async function getMovie(id: string): Promise<Movie> {
   const API_KEY = process.env.TMDB_API_KEY;
   const res = await fetch(
@@ -21,9 +25,7 @@ async function getMovie(id: string): Promise<Movie> {
 
 export default async function MovieDetailPage({
   params,
-}: {
-  params: { id: string };
-}) {
+}: MovieDetailPageProps) {
   const { id } = params;
   const movie = await getMovie(id);
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
