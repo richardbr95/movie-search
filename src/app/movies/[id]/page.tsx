@@ -9,7 +9,7 @@ interface Movie {
 }
 
 interface MovieDetailPageProps {
-  params: { id: string };
+  params: Record<string, string>;
 }
 
 async function getMovie(id: string): Promise<Movie> {
