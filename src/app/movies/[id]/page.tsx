@@ -22,7 +22,7 @@ async function getMovie(id: string): Promise<Movie> {
 export default async function MovieDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Record<string, string>;
 }) {
   const { id } = params;
   const movie = await getMovie(id);
